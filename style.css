@@ -1,0 +1,162 @@
+body {
+  background:black;
+}
+
+#background {
+    width:280px;
+    height:520px;
+    background:gray;
+    margin:50px auto;
+    transition: all 2s ease;
+}
+
+button {
+    border:0;
+    color:#fff;
+}
+
+#result {
+    display:block;
+    font-family: sans-serif;
+    width:230px;
+    height:40px;
+    margin:10px auto;
+    text-align: right;
+    border:0;
+    background:#333333;
+    color:#fff;
+    padding-top:20px;
+    font-size:40px;
+    margin-left: 25px;
+    outline: none;
+    overflow: hidden;
+    letter-spacing: 1px;
+    position: relative;
+    top:10px;
+}
+
+#result:hover {
+    
+    cursor: text;
+}
+
+#row {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    top:10px;
+}
+
+.rows {
+    width:300px;
+    margin-top:10px;
+}
+.delete {
+    width:110px;
+    height:50px;
+    margin-left:25px;
+    border-radius:4px;
+}
+.btn-style {
+    width:50px;
+    height:50px;
+    margin-left:5px;
+    border-radius:4px;
+}
+
+.db-style {
+    width:50px;
+    height:50px;
+    margin-left:5px;
+    border-radius:4px;
+}
+
+.first-child {
+ margin-left:25px;
+}
+ .num-style {
+    background:#000;
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    outline:none;
+    border-bottom:3px solid #333;
+}
+
+ .num-style:active {
+    background:#000;
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    outline:none;
+    box-shadow: inset 5px 5px 5px #555;
+}
+.pt-style {
+    background:#66CCCC;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    border-bottom:3px solid #555;
+}
+
+.pt-style:active {
+    background:#333;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    box-shadow: inset 4px 4px 4px #555;
+}
+.style-c {
+    background:#CC3300;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    border-bottom:3px solid #993300;
+}
+
+.style-c:active {
+    background:#993300;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    box-shadow: inset 4px 4px 4px #CC3300;
+}
+.del-style {
+    background:#24b4de;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    border-bottom:3px solid #399cb9;
+}
+
+.del-style:active {
+    background:#24b4de;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    box-shadow: inset 4px 4px 4px #399cb9;
+}
+
+#kq {
+    background:#333333;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    border-bottom:3px solid #555555;
+}
+
+#kq:active {
+    background:#111111;
+    color:#fff;
+    font-size:26px;
+    cursor: pointer;
+    outline:none;
+    box-shadow: inset 4px 4px 4px #555555;
+}
