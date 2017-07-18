@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Đăng ký</title>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</head>
+<body>
+	<h1 style="text-align: center; color: red;">Đăng ký thành công</h1>
+	<ul> <h3>Thông tin đăng ký</h3>
+		<li>Email:<span id="email"></span> </li>
+		<li>Tên đăng nhập:<span id="username"></span> </li>
+		<li>Mật khẩu:<span id="password"></span> </li>
+		<li>Họ tên:<span id="name"></span> </li>
+		<li>Ngày sinh:<span id="datetime"></span> </li>
+		<li>Giới tính: <span id="sex"></span></li>
+	</ul>
+	<script>
+		window.onload = function() {
+			var url= (new URL(location)).searchParams;
+			decodeURIComponent(url);
+			document.getElementById("email").innerHTML=(url.get('email'));
+			document.getElementById("username").innerHTML=(url.get('username'));
+			document.getElementById("password").innerHTML=(url.get('password'));
+			document.getElementById("name").innerHTML=(url.get('name'));
+			document.getElementById("datetime").innerHTML=(url.get('day') + "/" + url.get('month') + "/" + url.get('year'));
+			document.getElementById("sex").innerHTML=(url.get('sex'));
+		}
+	</script>
+</body>
+</html>

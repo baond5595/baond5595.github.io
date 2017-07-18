@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<title>Register Form</title>
+</head>
+<body background="background.jpg">
+	<h1  style="color: black; margin: 0 auto; margin-left: 50px;">Đăng Ký</h1>
+	<form style="margin-left: 50px;" action="login.html" id="form-register">
+
+		<label for="email"><h3 style="color: #222222;">Địa chỉ email: </h3></label>
+		<input id="email" type="text" name="email" placeholder="Địa chỉ email" size="30" style="height: 20px; background-color: #F0F8FF;" />
+		<span class="error" style="font-style: italic;color: red;"></span>
+		<br/>
+
+		<label for="username"><h3 style="color: bl#222222ue;">Tên đăng nhập: </h3></label>
+		<input id="username" type="text" name="username" placeholder="Tên đăng nhập" size="30" style="height: 20px;background-color: #F0F8FF;"/>
+		<span class="error" style="font-style: italic; color: red;"></span><br/>
+
+		<label for="password"><h3  style="color: #222222;">Mật khẩu: </h3></label>
+		<input id="password" type="password" name="password" placeholder="Mật khẩu" size="30" style="height: 20px;background-color: #F0F8FF;"/>
+		<span class="error" style="font-style: italic; color: red;"></span>
+		<br/>
+
+		<label for="name"><h3  style="color: #222222;">Họ và tên: </h3></label></label>
+		<input id="name" type="text" name="name" placeholder="Họ và tên" size="30" style="height: 20px;background-color: #F0F8FF;"/>
+		<span class="error" style="font-style: italic; color: red;"></span>
+		<br/>
+
+		<label><h3  style="color: #222222;">Năm sinh: </h3></label>
+		<span>
+			<select aria-label="Ngày" name="day" id="day" title="Ngày">
+				<option value="0" selected="1" style="font-weight: bold;">Ngày</option>
+			</select>
+			<span class="error" style="font-style: italic; color: red;"></span>
+			<select aria-label="Tháng" name="month" id="month" title="Tháng">
+				<option value="0" selected="1" style="font-weight: bold;">Tháng</option>
+				<option value="1">Tháng 1</option>
+				<option value="2">Tháng 2</option>
+				<option value="3">Tháng 3</option>
+				<option value="4">Tháng 4</option>
+				<option value="5">Tháng 5</option>
+				<option value="6">Tháng 6</option>
+				<option value="7">Tháng 7</option>
+				<option value="8">Tháng 8</option>
+				<option value="9">Tháng 9</option>
+				<option value="10">Tháng 10</option>
+				<option value="11">tháng 11</option>
+				<option value="12">Tháng 12</option>
+			</select>
+			<span class="error" style="font-style: italic; color: red;"></span>
+			<select aria-label="Năm" name="year" id="year" title="Năm">
+				<option value="0" selected="1" style="font-weight: bold;">Năm</option>
+			</select>
+			<span class="error" style="font-style: italic; color: red;"></span>
+		</span>
+		<label id="sex" for="sex"><h3  style="color: #222222;">Giới tính: </h3></label></label>
+		<input type="radio" name="sex" id="male" value="Nam"/><label for="male">Nam</label> &nbsp;
+		<input type="radio" name="sex" id="female" value="Nữ" /><label for="female">Nữ</label> &nbsp;
+		<input type="radio" name="sex" id="other" value="Khác" /><label for="other">Khác</label>
+		<span class="error" style="font-style: italic; color: red;" id="check-sex"></span>
+		<br/>
+		<br/>
+		<input style="color: black;height: 40px; width: 100px; text-align: center; font-weight: bold; border-radius: 20px;" type="submit" value="Đăng Ký" />
+	</form>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		var nowY = new Date().getFullYear(),
+		options_year = "";
+		options_day="";
+		for(var Y=nowY; Y>=1980; Y--) {
+			options_year += "<option>"+ Y +"</option>";
+		}
+
+		$("#year").append( options_year );
+		for(var D=1;D<=31;D++){
+			options_day+="<option>"+ D +"</option>";
+		}
+		$("#day").append( options_day );
+		//Check
+		$('#form-register').on('submit', function(){
+		//username
+		var x=true;
+		if($('#username').val().trim()==''){
+			$('#username').next('span').text(' Tên đăng nhập không được để trống!');
+			x=false;
+		}else{
+			if ($('#username').val().match(/^\w\w{3,20}$/)==null ){
+				$('#username').next('span').text(' Tên đăng nhập phải từ 4 đến 20 ký tự và không chứa ký tự đặc biệt!');
+				x=false;
+			}else{
+				$('#username').next('span').text('');
+			}		
+		}
+		//email
+		if ($('#email').val().trim()=='' ){
+			$('#email').next('span').text(' Địa chỉ email không được để trống!');
+			x=false;
+		}else{
+			if ($('#email').val().match(/^\w+.+\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)==null ){
+				$('#email').next('span').text(' Địa chỉ email không hợp lệ!');
+				x=false;
+			}else{
+				$('#email').next('span').text('');
+			}		
+		}
+		//password
+		if($('#password').val().trim()==''){
+			$('#password').next('span').text(' Mật khẩu không được để trống!');
+			x=false;
+		}else{
+			if ($('#password').val().match(/^[a-zA-Z]\w{3,15}$/)==null ){
+				$('#password').next('span').text(' Mật khẩu không hợp lệ! (Mật khẩu 4-15 ký tự bắt đầu bằng chữ(a-z,A-Z), không phải là chuỗi 1234, qwer...)');
+				x=false;
+			}else{
+				$('#password').next('span').text('');
+			}		
+		}
+		//name
+		if($('#name').val().trim()==''){
+			$('#name').next('span').text(' Vui lòng nhập họ và tên của bạn!');
+			x=false;
+		}else{
+			$('#name').next('span').text('');
+		}
+		//datetime
+		if($('#day').val()==0){
+			$('#day').next('span').text(' Chọn ngày!');
+			x=false;
+		}else{
+			$('#day').next('span').text('');
+		}	
+		if($('#month').val()==0){
+			$('#month').next('span').text(' Chọn tháng!');
+			x=false;
+		}else{
+			$('#month').next('span').text('');
+		}
+		if($('#year').val()==0){
+			$('#year').next('span').text(' Chọn năm!');
+			x=false;
+		}else{
+			$('#year').next('span').text('');
+		}	
+		//Sex
+		if($('input[name=sex]:checked').length<=0)
+		{
+			$('#check-sex').text('Chọn giới tính của bạn!');
+			x=false;
+		}else{
+			$('#check-sex').text('');
+		}
+		return x;
+	});
+</script>
+</body>
+</html>

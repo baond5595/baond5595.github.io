@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Đăng ký</title>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</head>
+<body background="background.jpg">
+	<h1 style="text-align: center; color: red;">Đăng ký thành công</h1> 
+	<div style="text-align: center;">
+		<video width="320" height="240" controls="controls" loop="10" autoplay="autoplay">
+			<source src="video.mp4" type="video/mp4">
+			<source src="video.ogg" type="video/ogg">
+				Your browser does not support the video tag.(Video không hỗ trợ trình duyệt.)
+		</video>
+	</div>
+	<div style="margin-left: 200px;">
+		<ul> <h3>Thông tin đăng ký</h3>
+			<li><b>Email:  </b><span id="email" style="color:red;font-weight: bold;">  </span> </li>
+			<li><b>Tên đăng nhập:  </b><span id="username" style="color: red;font-weight: bold;">  </span> </li>
+			<li><b>Mật khẩu:  </b><span id="password" style="color: red;font-weight: bold;">  </span> </li>
+			<li><b>Họ tên:  </b><span id="name" style="color: red;font-weight: bold;">  </span> </li>
+			<li><b>Ngày sinh:  </b><span id="datetime" style="color: red;font-weight: bold;">  </span> </li>
+			<li><b>Giới tính:  </b><span id="sex" style="color: red;font-weight: bold;">  </span></li>
+		</ul>
+	</div>
+			<script>
+				window.onload = function() {
+					var url= (new URL(location)).searchParams;
+					decodeURIComponent(url);
+					document.getElementById("email").innerHTML=(url.get('email'));
+					document.getElementById("username").innerHTML=(url.get('username'));
+					document.getElementById("password").innerHTML=(url.get('password'));
+					document.getElementById("name").innerHTML=(url.get('name'));
+					document.getElementById("datetime").innerHTML=(url.get('day') + "/" + url.get('month') + "/" + url.get('year'));
+					document.getElementById("sex").innerHTML=(url.get('sex'));
+				}
+			</script>
+		</body>
+		</html>
